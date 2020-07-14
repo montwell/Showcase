@@ -1,4 +1,4 @@
-package com.montwell.showcase.data.dto
+package com.montwell.showcase.api.dto
 
 import com.google.gson.annotations.SerializedName
 

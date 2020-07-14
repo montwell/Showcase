@@ -1,6 +1,6 @@
-package com.montwell.showcase.data.api
+package com.montwell.showcase.api
 
-import com.montwell.showcase.data.dto.GetMoviesResponse
+import com.montwell.showcase.api.dto.GetMoviesResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -24,8 +24,6 @@ interface TheMovieDbOrgService {
 
         fun create(): TheMovieDbOrgService {
             val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
-
-            getApiKey()
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)

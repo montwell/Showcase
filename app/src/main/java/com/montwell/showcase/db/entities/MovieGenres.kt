@@ -1,4 +1,4 @@
-package com.montwell.showcase.data.entities
+package com.montwell.showcase.db.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

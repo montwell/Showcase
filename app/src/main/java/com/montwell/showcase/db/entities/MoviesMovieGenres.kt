@@ -1,7 +1,6 @@
-package com.montwell.showcase.data.entities
+package com.montwell.showcase.db.entities
 
 import androidx.room.Entity
-import androidx.room.ForeignKey
 
 @Entity(primaryKeys = ["movieId", "movieGenreId"])
 data class MoviesMovieGenres(

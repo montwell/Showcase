@@ -83,3 +83,6 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# api-keys file
+/app/src/main/jni/api-keys.c

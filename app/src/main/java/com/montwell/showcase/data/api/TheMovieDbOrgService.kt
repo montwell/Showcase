@@ -13,10 +13,19 @@ interface TheMovieDbOrgService {
     suspend fun getMovies() : GetMoviesResponse
 
     companion object {
+
+        init {
+            System.loadLibrary("api-keys")
+        }
+
         private const val BASE_URL = "https://api.themoviedb.org/3/"
+
+        private val API_KEY = getApiKey()
 
         fun create(): TheMovieDbOrgService {
             val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
+
+            getApiKey()
 
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)
@@ -29,5 +38,8 @@ interface TheMovieDbOrgService {
                 .build()
                 .create(TheMovieDbOrgService::class.java)
         }
+
+        private external fun getApiKey(): String
+
     }
 }

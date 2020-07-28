@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.montwell.showcase.ui.main.MainFragment"
+        android:label="LandingFragment">
+
+        <action
+            android:id="@+id/action_mainFragment_to_searchMoviePreviewFragment"
+            app:destination="@id/searchMoviePreviewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="query"
+                app:argType="string" />
+
+        </action>
+
+        <action
+            android:id="@+id/action_mainFragment_to_discoverMoviePreviewFragment"
+            app:destination="@id/discoverMoviePreviewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="genreIds"
+                app:argType="string"
+                app:nullable="true" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/discoverMoviePreviewFragment"
+        android:name="com.montwell.showcase.ui.movie_preview.DiscoverMoviePreviewFragment"
+        android:label="DiscoverMoviePreviewFragment">
+
+        <argument
+            android:name="genreIds"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_discoverMoviePreviewFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="movieId"
+                app:argType="integer" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchMoviePreviewFragment"
+        android:name="com.montwell.showcase.ui.movie_preview.SearchMoviePreviewFragment"
+        android:label="SearchMoviePreviewFragment">
+
+        <argument
+            android:name="query"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_searchMoviePreviewFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="movieId"
+                app:argType="integer" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.montwell.showcase.ui.movie_detail.MovieDetailFragment"
+        android:label="movie_detail_fragment"
+        tools:layout="@layout/movie_detail_fragment">
+
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+
+    </fragment>
+
+</navigation>
